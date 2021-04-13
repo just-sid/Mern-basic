@@ -14,7 +14,7 @@ const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const connection = mongoose.connection;
-connection.once('open', () => {
+connection.on('open', () => {
     console.log("Datababse connection established");
 })
 
