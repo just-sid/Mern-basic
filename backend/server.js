@@ -18,6 +18,16 @@ connection.on('open', () => {
     console.log("Datababse connection established");
 })
 
+
+const exercisesRoute = require("./routes/exercises");
+const userRoute = require("./routes/users");
+
+
+app.use("/posts", exercisesRoute);
+app.use("/posts", postRoute);
+ 
+
+
 app.listen(port, () => {
  console.log(`Server running on port: ${port}`);
 });

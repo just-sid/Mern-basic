@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 
-const PostSchema = mongoose.Schema({
+const ExerciseSchema = mongoose.Schema({
     username: {
       type: String,
       required: true,
@@ -22,4 +22,4 @@ const PostSchema = mongoose.Schema({
     timestamps: true,
 });
   
-  module.exports = mongoose.model("Posts", PostSchema);
+  module.exports = mongoose.model("Exercises", ExerciseSchema);

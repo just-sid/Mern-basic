@@ -1,16 +1,16 @@
 const mongoose = require("mongoose");
-const Joi = require("joi");
 
 
-const PostSchema = mongoose.Schema({
+const UserSchema = mongoose.Schema({
     username: {
       type: String,
       required: true,
+      unique: true,
+      trim: true,
+      minlength: 3
     },
-    description: {
-      type: String,
-      required: true,
-    }
-  });
+}, {
+    timestamps: true,
+});
   
-  module.exports = mongoose.model("Posts", PostSchema);
+  module.exports = mongoose.model("Users", UserSchema);
