@@ -10,6 +10,10 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+app.get('/',(req, res) => {
+    res.send('On home')
+});
+
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -20,11 +24,11 @@ connection.on('open', () => {
 
 
 const exercisesRoute = require("./routes/exercises");
-const userRoute = require("./routes/users");
+const usersRoute = require("./routes/users");
 
 
-app.use("/posts", exercisesRoute);
-app.use("/posts", postRoute);
+app.use("/exercises", exercisesRoute);
+app.use("/users", usersRoute);
  
 
 
