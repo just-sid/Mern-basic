@@ -30,4 +30,40 @@ router.get("/", async (req, res) => {
     }
   });
 
+
+  router.get("/:exercisesId", async (req, res) => {
+    try {
+      const exercises = await Exercises.findById(req.params.exercisesId);
+      res.json(exercises);
+    } catch (err) {
+      res.send(err.message);
+    }
+  });
+
+  router.delete("/:exercisesId", async (req, res) => {
+    try {
+      const oldexercises = await Exercises.deleteOne({ _id: req.params.exercisesId });
+      res.json(oldexercises);
+    } catch (err) {
+      res.send(err.message);
+    }
+  });
+
+
+  router.patch("/:exercisesID", async (req, res) => {
+    try {
+      const updatedexercises = await Exercises.updateMany(
+        { _id: req.params.exercisesID },
+        { $set: { username: req.body.username},
+        $set: { description: req.body.description},
+        $set: { duration: req.body.duration}
+           }
+      );
+      res.json(updatedexercises);
+    } catch (eror) {
+      res.json(error);
+    }
+  });
+
+  
   module.exports=router;
