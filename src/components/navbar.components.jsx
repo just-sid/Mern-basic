@@ -5,11 +5,11 @@ export default class Navbar extends Component {
 
     render() {
         return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <Link to='/' className='navbar-brand'>Exercise Tracker</Link>
-            <div className="collapse navbar-collapse">
-                <ul className="navbar-nav mr-auto">
-                    <li className="nav-item active">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <Link to='/' className='navbar-brand'>Exercise Tracker</Link>
+                <div className="collapse navbar-collapse">
+                    <ul className='navbar-nav mr-auto'>
+                    <li className="nav-item">
                     <Link to='/' className='nav-link'>Exercises</Link>
                     </li>
                     <li className="nav-item">
@@ -19,9 +19,13 @@ export default class Navbar extends Component {
                     <li className="nav-item">
                     <Link to='/createUsers' className='nav-link'>Create Users</Link>
                     </li>
-                </ul>
-            </div>
-        </nav>
+                    </ul>
+                </div>
+            </nav>
         );
     }
 }
+
+
+
+
