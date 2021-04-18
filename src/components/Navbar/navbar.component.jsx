@@ -13,13 +13,13 @@ const Navbar = () => {
       <h1>ExerTrack</h1>
         <Bars />
         <NavMenu>
-          <NavLink to='/' activeStyle>
+          <NavLink to='/' >
             Exercises
           </NavLink>
-          <NavLink to='/createUsers' activeStyle>
+          <NavLink to='/createUsers' >
             Create Users
           </NavLink>
-          <NavLink to='/createExercises' activeStyle>
+          <NavLink to='/createExercises' >
             Create Exercises
           </NavLink>
           {/* Second Nav */}
