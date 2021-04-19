@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
       const exercises = await Exercises.find();
       res.json(exercises);
     } catch (err) {
-      res.send(error.message);
+      res.send(err.message);
     }
   });
 
@@ -61,7 +61,7 @@ router.get("/", async (req, res) => {
       );
       res.json(updatedexercises);
     } catch (eror) {
-      res.json(error);
+      res.json(eror);
     }
   });
 

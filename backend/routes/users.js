@@ -9,19 +9,19 @@ router.get("/", async (req, res) => {
       const users = await Users.find();
       res.json(users);
     } catch (err) {
-      res.send(error.message);
+      res.send(err.message);
     }
   });
   
   
   router.post("/add", async (req, res) => {
-    const users = new Users({
+    const username = new Users({
       username: req.body.username,
     });
   
     try {
-      const newUsers= await users.save();
-      res.send('User added');
+      const newUsers= await username.save();
+      res.json('User added');
       res.json(newUsers);
     } catch (err) {
       res.json({ message: err });
