@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 const Exercise = (props) => {
     return(
@@ -8,7 +10,7 @@ const Exercise = (props) => {
             <td> { props.exercise.duration } </td>
             <td> { props.exercise.date}</td>
             <td>
-                <link to ={"/edit/"+props.exercise._id}>edit</link> | <a href="#" onClick={() => props.deleteExercise(props.exercise._id)}>delete</a>
+                <Link to ={"/edit/"+props.exercise._id}>edit</Link> | <a href="#" onClick={() => {props.deleteExercise(props.exercise._id)}}>delete</a>
             </td>    
         </tr>
     )
