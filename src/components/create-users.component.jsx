@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class CreateUsers extends Component {
     constructor(props) {
         super(props);
-        this.state = { user: '' }
+        this.state = { username: '' }
     }
 
     onChangeUser = (e) => {
         this.setState({
-            user: e.target.value
+            username: e.target.value
         });
     }
 
     onSubmit = (e) => {
         e.preventDefault();
 
-        const user = {user: this.state.user}
-        console.log(user);
+        const username = {username: this.state.username}
+        console.log(username);
+        axios.post('http://localhost:5000/users/add', username)
+            .then(res => console.log(res.data));
         
-        this.setState({ user: ''})
+        this.setState({ username: ''})
     }
 
     render() { 
