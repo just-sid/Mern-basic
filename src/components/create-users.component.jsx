@@ -17,8 +17,8 @@ class CreateUsers extends Component {
 
         const user = {user: this.state.user}
         console.log(user);
-        console.log('New user created');
-        window.location='/';
+        
+        this.setState({ user: ''})
     }
 
     render() { 
