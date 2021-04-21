@@ -51,6 +51,7 @@ onChangeDuration = (e) => {
 }
 
 onChangeDate = (date) => {
+
     this.setState({
         date: date
     });
@@ -62,15 +63,16 @@ onSubmit = (e) => {
     const exercise = {
         username: this.state.username,
         description: this.state.description,
-        duration: this.state.duration,
-        date: this.state.date
+        duration: Number(this.state.duration),
+        date: new Date(this.state.date)
     }
 
     console.log(exercise);
 
-    axios.post('http://localhost:5000/exercises/add', exercise)
+    axios.post('http://localhost:5000/exercises/add/', exercise)
             .then(res => console.log(res.data));
 
+          
             
     window.location='/';
 } 

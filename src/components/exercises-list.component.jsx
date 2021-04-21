@@ -19,6 +19,7 @@ class ExerciseList extends Component {
     }
 
 
+
     /* async componentDidMount() {
         try{
             const exdata = await axios.get('http://localhost:5000/exercises');
@@ -35,10 +36,11 @@ class ExerciseList extends Component {
         axios.delete('http://localhost:5000/exercises/'+exercisesId)
             .then(res => console.log(res.data));
         this.setState({
-            exercises: this.state.exercises.filter(el =>el._id !== exercisesId)
+            exercises: this.state.exercises.filter(el => el._id !== exercisesId)
         })
     }
 
+    
 
      exerciseList = () => {
         return this.state.exercises.map(currentExercise => {

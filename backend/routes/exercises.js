@@ -14,11 +14,13 @@ router.get("/", async (req, res) => {
   });
 
 
+
   router.post("/add", async (req, res) => {
     const exercises = new Exercises({
       username: req.body.username,
       description: req.body.description,
       duration: Number(req.body.duration),
+      date: new Date(req.body.date)
     });
   
     try {
@@ -44,26 +46,45 @@ router.get("/", async (req, res) => {
     try {
       const oldexercises = await Exercises.deleteOne({ _id: req.params.exercisesId });
       res.json(oldexercises);
+      res.send('Deleted');
     } catch (err) {
       res.send(err.message);
     }
   });
 
+  
 
-  router.patch("/:exercisesID", async (req, res) => {
+  router.patch("/update/:exercisesId", (req, res) => {
+    Exercises.findById(req.params.exercisesId)
+      .then(exercise => {
+        exercise.username =  req.body.username;
+        exercise.description =  req.body.description;
+        exercise.duration =  Number(req.body.duration);
+        //exercise.date =  new Date(req.body.date);
+
+        exercise.save()
+          .then(() => res.send('Exercise Updated'))
+          .catch(err => res.json(err));
+      })
+      .catch(err => res.json(err));
+  });
+
+  /* router.post("/update/:exercisesID", async (req, res) => {
     try {
-      const updatedexercises = await Exercises.updateMany(
-        { _id: req.params.exercisesID },
-        { $set: { username: req.body.username},
-        $set: { description: req.body.description},
-        $set: { duration: req.body.duration}
-           }
-      );
+      const updatedexercises = await Exercises.findById(req.params.id);
+
+        updatedexercises.username =  req.body.username;
+        updatedexercises.descripton =  req.body.description;
+        updatedexercises.duration =  Number(req.body.duration);
+        updatedexercises.date =  Date.parse(req.body.date);
+
+      res.send(updatedexercises);
       res.json(updatedexercises);
+      res.send('updated')
     } catch (eror) {
       res.json(eror);
     }
-  });
+  }); */
 
   
   module.exports=router;

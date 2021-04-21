@@ -15,12 +15,12 @@ router.get("/", async (req, res) => {
   
   
   router.post("/add", async (req, res) => {
-    const username = new Users({
+    const users = new Users({
       username: req.body.username,
     });
   
     try {
-      const newUsers= await username.save();
+      const newUsers= await users.save();
       res.json('User added');
       res.json(newUsers);
     } catch (err) {
